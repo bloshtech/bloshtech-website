@@ -1,0 +1,837 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bloshtech | Systemic Logic • Robotics • Software</title>
+
+    <!-- =========================================================
+      STEP 1: CSS STYLESHEET CONNECTION
+      Ensure bloshtechmodern.css is located in the same directory.
+    ========================================================= -->
+    <link rel="stylesheet" href="bloshtechmodern.css" />
+
+    <!-- Google Montserrat Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- =========================================================
+      STEP 2: PWA & APP CONFIGURATION
+      These files enable web installation and mobile store wrapping.
+      Requires manifest.json in rIoot and icons inside the /images folder.
+    ========================================================= -->
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="images/icon-192.png" />
+    <link rel="icon" type="image/png" href="images/icon-192.png" />
+    <meta name="theme-color" content="#0d0d0d" />
+
+    <!-- =========================================================
+      STEP 3: SEO & SOCIAL GRAPH PREVIEWS
+      Controls how your link looks when shared on WhatsApp, LinkedIn, etc.
+    ========================================================= -->
+    <meta
+      name="description"
+      content="BloshTech Educational Hub Ltd — Engineering systemic logic, STEM robotics curricula, and enterprise software solutions."
+    />
+    <meta
+      property="og:title"
+      content="BloshTech | Systemic Logic • Robotics • Software"
+    />
+    <meta
+      property="og:description"
+      content="We pioneer system-level technology education, hardware infrastructure, and industry-defining software solutions across Africa."
+    />
+    <meta
+      property="og:image"
+      content="https://bloshtech.com/images/about-team.jpg"
+    />
+    <meta property="og:url" content="https://bloshtech.com" />
+    <meta property="og:type" content="website" />
+
+    <!-- =========================================================
+      STEP 4: PAYSTACK INLINE SDK
+      Loads Paystack's official JavaScript engine for popup checkout.
+    ========================================================= -->
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+  </head>
+  <body>
+    <!-- =========================================================
+      STEP 5: NAVIGATION BAR
+      Includes your brand logo, mobile hamburger toggle, and section links.
+    ========================================================= -->
+    <header class="navbar">
+      <div class="container nav-container">
+        <a href="#" class="brand-logo">
+          <!-- Logo image: Place logo-dark.png in the /images folder -->
+          <img
+            src="images/logo-dark.png"
+            alt="Bloshtech Logo"
+            class="logo-img"
+            onerror="this.style.display = 'none'"
+          />
+          <span class="logo-text"
+            >BLOSH<span class="gold-text">TECH</span></span
+          >
+        </a>
+
+        <!-- Hamburger Icon Button (visible only on mobile screens) -->
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-label="Toggle navigation"
+        >
+          ☰
+        </button>
+
+        <nav class="nav-links" id="navLinks">
+          <a href="#about">Directive</a>
+          <a href="#ecosystem">Ecosystem</a>
+          <a href="#impact">Proof of Impact</a>
+          <a href="#academy">Academy</a>
+          <a href="#partners">Alliances</a>
+        </nav>
+        <a href="#contact" class="btn btn-gold nav-btn">Partner With Us</a>
+      </div>
+    </header>
+
+    <!-- =========================================================
+      STEP 6: HERO SECTION
+      Primary headline and direct call-to-action buttons.
+    ========================================================= -->
+    <section class="hero-section">
+      <div class="container hero-content">
+        <span class="badge-gold">INDUSTRIAL AI • ROBOTICS • SOFTWARE SAAS</span>
+        <h1 class="hero-title">
+          ENGINEERING THE <span class="gold-text">AFRICAN TECH</span> REVOLUTION
+        </h1>
+        <p class="hero-subtitle">
+          We pioneer system-level technology education, hardware infrastructure,
+          and industry-defining software solutions across the continent.
+        </p>
+        <div class="hero-actions">
+          <a href="#ecosystem" class="btn btn-gold">Explore Core Solutions</a>
+          <a href="#contact" class="btn btn-outline">Book Enterprise Demo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+      STEP 7: CORPORATE STRATEGIC ALLIANCES
+      Displays partner logos (Conintrade & True Mustards) with text fallbacks.
+    ========================================================= -->
+    <!-- Corporate Strategic Alliances Bar -->
+    <section id="partners" class="partner-bar">
+      <div class="container">
+        <p class="partner-tag">STRATEGIC CORPORATE ALLIANCES</p>
+        <div class="partner-flex">
+          <div class="partner-item">
+            <a
+              href="https://travelbyconintrade.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="partner-link"
+            >
+              <img
+                src="images/Conintrade-logo.jpeg"
+                alt="Conintrade Logo"
+                class="partner-logo"
+              />
+              <span class="partner-name">CONINTRADE</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+      STEP 8: CORPORATE DIRECTIVE (ABOUT)
+      Overview of BloshTech's mission and team photo.
+    ========================================================= -->
+    <section id="about" class="section-container container">
+      <div class="grid-2-equal align-center">
+        <div>
+          <span class="card-tag gold-tag">THE BLOSHTECH DIRECTIVE</span>
+          <h2 class="section-title-large">
+            BUILDING THE NEXT GENERATION OF
+            <span class="gold-text">SYSTEMS ARCHITECTS</span>
+          </h2>
+          <p class="text-lead">
+            BloshTech Educational Hub Ltd operates at the intersection of
+            hands-on physical computing, structured STEM curricula, and
+            specialized software development.
+          </p>
+          <p class="text-body">
+            From deploying comprehensive robotics programs in primary and
+            secondary schools to architecting enterprise tools like
+            <strong>CutMaster Pro</strong>, we equip institutions and businesses
+            with actionable engineering logic.
+          </p>
+        </div>
+        <div class="image-frame-gold">
+          <!-- Place about-team.jpg inside /images folder -->
+          <img
+            src="images/about-team.JPG"
+            alt="Bloshtech Engineering Team in Action"
+            class="responsive-img"
+            onerror="
+              this.src =
+                'https://via.placeholder.com/600x400/141414/c5a059?text=Bloshtech+Engineering+Team'
+            "
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+      STEP 9: OUR CORE ECOSYSTEM
+      Product cards highlighting Roboworld, CutMaster Pro, and Hardware Kits.
+    ========================================================= -->
+    <section id="ecosystem" class="section-container bg-dark-card">
+      <div class="container">
+        <div class="section-header">
+          <h2>OUR CORE <span class="gold-text">ECOSYSTEM</span></h2>
+          <p class="section-desc">
+            Integrated hardware, publishing, and software platforms driving
+            technical literacy.
+          </p>
+          <div class="gold-divider"></div>
+        </div>
+
+        <div class="grid-3">
+          <!-- Roboworld Card -->
+
+          <div id="roboworld" class="card">
+            <div
+              style="
+                width: 100%;
+                height: 200px;
+                background: #080808;
+                border-radius: 6px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 16px;
+                border: 1px solid var(--border-color);
+              "
+            >
+              <img
+                src="images/roboworld-book1.png"
+                alt="Roboworld Simple Pathways Book 1"
+                style="
+                  max-height: 185px;
+                  width: auto;
+                  object-fit: contain;
+                  border-radius: 4px;
+                  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+                "
+              />
+            </div>
+            <div class="card-tag gold-tag">Curriculum Publishing</div>
+            <h3>Roboworld Book Series</h3>
+            <p>
+              <em>Book 1: Simple Pathways</em> — A tech-inspired robotics and
+              coloring adventure designed to introduce early learners to
+              foundational engineering logic.
+            </p>
+            <div
+              style="
+                margin-bottom: 20px;
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+              "
+            >
+              <a
+                href="https://wa.me/2347011511439?text=Hello%20BloshTech,%20I%20would%20like%20to%20order%20copies%20of%20Roboworld%20Book%201:%20Simple%20Pathways."
+                target="_blank"
+                class="btn btn-gold card-btn"
+                style="padding: 10px 18px; font-size: 0.8rem"
+                >Order Copy</a
+              >
+              <a
+                href="#contact"
+                class="btn btn-outline card-btn"
+                style="padding: 10px 18px; font-size: 0.8rem"
+                >School Adoption</a
+              >
+            </div>
+            <small style="color: var(--text-muted); font-size: 0.75rem">
+              Available in Print & Institutional Packs
+            </small>
+          </div>
+
+          <!-- CutMaster Pro Card (Hybrid SaaS) -->
+          <div id="cutmaster" class="card card-featured">
+            <img
+              src="images/cutmaster-preview.png"
+              alt="CutMaster Pro Apparel Measurement Engine"
+              style="
+                width: 100%;
+                height: 160px;
+                object-fit: cover;
+                border-radius: 6px;
+                margin-bottom: 16px;
+              "
+            />
+            <div class="card-tag gold-tag">Flagship SaaS Application</div>
+            <h3>CutMaster Pro</h3>
+            <p>
+              An offline-first operational suite built for modern apparel
+              workshops and fashion hubs. Streamline client measurements,
+              cutting specs, and billing.
+            </p>
+            <div style="margin-bottom: 20px">
+              <a
+                href="https://cutmaster.bloshtech.com"
+                target="_blank"
+                class="btn btn-gold card-btn"
+                >Launch Web App</a
+              >
+            </div>
+            <small style="color: var(--text-muted); font-size: 0.75rem">
+              Hybrid Ecosystem: Web PWA • Google Play • App Store
+            </small>
+          </div>
+
+          <!-- Hardware & Competitions Card -->
+          <!-- Hardware & Competitions Card -->
+          <div id="kits" class="card">
+            <div
+              style="
+                width: 100%;
+                height: 200px;
+                background: #080808;
+                border-radius: 6px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 16px;
+                border: 1px solid var(--border-color);
+              "
+            >
+              <img
+                src="images/hardware-kit.jpg"
+                alt="Ultimate Robotics Starter Kit Packaging"
+                style="
+                  max-height: 185px;
+                  width: auto;
+                  object-fit: contain;
+                  border-radius: 4px;
+                  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+                "
+              />
+            </div>
+            <div class="card-tag gold-tag">Hardware & Competition</div>
+            <h3>Robotics Kits & STEM Leagues</h3>
+            <p>
+              Custom electronic expansion kits engineered for real-world
+              experimentation, powering our annual interschool robotics and
+              coding championship.
+            </p>
+            <div
+              style="
+                margin-bottom: 20px;
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+              "
+            >
+              <a
+                href="https://wa.me/2347011511439?text=Hello%20BloshTech,%20I%20would%20like%20to%20order%20the%20Ultimate%20Robotics%20Starter%20Kit."
+                target="_blank"
+                class="btn btn-gold card-btn"
+                style="padding: 10px 18px; font-size: 0.8rem"
+                >Order Kit</a
+              >
+              <a
+                href="#contact"
+                class="btn btn-outline card-btn"
+                style="padding: 10px 18px; font-size: 0.8rem"
+                >Register School</a
+              >
+            </div>
+            <small style="color: var(--text-muted); font-size: 0.75rem">
+              Arduino-Compatible • Sensors & Servo Modules Included
+            </small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+      STEP 10: FIELD EXECUTION & IMPACT GALLERY
+      Photo gallery showing hands-on classroom activities.
+    ========================================================= -->
+    <!-- FIELD EXECUTION & TOURNAMENT HONOURS -->
+    <section id="impact" class="section-container">
+      <div class="container">
+        <div class="section-header">
+          <span class="card-tag gold-tag">PROVEN CAPABILITY</span>
+          <h2>FIELD EXECUTION & <span class="gold-text">HONOURS</span></h2>
+          <p class="section-desc">
+            Real-world implementation across labs, classrooms, and regional
+            championship podiums.
+          </p>
+          <div class="gold-divider"></div>
+        </div>
+
+        <!-- 6-Card Grid: Row 1 (Classroom Execution) & Row 2 (Trophy Honours) -->
+        <div class="grid-3">
+          <!-- Card 1: Field Missions -->
+          <div class="card card-media">
+            <img
+              src="images/gallery-1.jpg"
+              alt="Autonomous Field Missions"
+              class="card-img"
+            />
+            <div class="card-body">
+              <h3>Autonomous Field Missions</h3>
+              <p>
+                Students designing sensory line-following, logic loops, and
+                obstacle-navigation algorithms.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2: Applied Labs -->
+          <div class="card card-media">
+            <img
+              src="images/gallery-2.png"
+              alt="Applied Robotics Labs"
+              class="card-img"
+            />
+            <div class="card-body">
+              <h3>Applied Robotics Labs</h3>
+              <p>
+                Practical motor mechanics, hardware assembly, and embedded
+                circuit troubleshooting.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3: Curriculum Integration -->
+          <div class="card card-media">
+            <img
+              src="images/gallery-3.jpg"
+              alt="Curriculum Integration"
+              class="card-img"
+            />
+            <div class="card-body">
+              <h3>Curriculum Integration</h3>
+              <p>
+                Direct mentor deployment embedding structured STEM tracks into
+                regular school timetables.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 4: Trophy 1 -->
+          <div class="card card-media">
+            <img
+              src="images/trophy-1.jpg"
+              alt="Championship Podium Win"
+              class="card-img"
+            />
+            <div class="card-body">
+              <h3>Championship Laurels</h3>
+              <p>
+                First-place podium finishes and gold honours in national
+                autonomous robotics tournament.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 5: Trophy 2 -->
+          <div class="card card-media">
+            <img
+              src="images/trophy-2.JPG"
+              alt="Interschool Trophy Award"
+              class="card-img"
+            />
+            <div class="card-body">
+              <h3>International Victory</h3>
+              <p>
+                Recognized internationally at the FIRST LEGO League in the USA
+                for exceptional leadership, engineering mentorship, and student
+                coaching excellence.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 6: Trophy 3 -->
+          <div class="card card-media">
+            <img
+              src="images/trophy-3.jpg"
+              alt="STEM League Recognition"
+              class="card-img"
+            />
+            <div class="card-body">
+              <h3>Innovation & Design Cups</h3>
+              <p>
+                Special accolades for mechanical design, algorithmic efficiency,
+                and team presentation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+      STEP 11: DIGITAL ACADEMY & VIDEO LESSONS
+      Embedded YouTube player and curriculum highlights.
+    ========================================================= -->
+    <section id="academy" class="section-container bg-dark-card">
+      <div class="container">
+        <div class="section-header">
+          <h2>BLOSHTECH <span class="gold-text">DIGITAL ACADEMY</span></h2>
+          <p class="section-desc">
+            Self-paced video modules mapped directly to our Roboworld curriculum
+            tracks.
+          </p>
+          <div class="gold-divider"></div>
+        </div>
+
+        <div class="video-grid">
+          <div class="video-container">
+            <iframe
+              src="https://www.youtube.com/embed/xDmjKUBDGhE"
+              title="Roboworld Lesson Preview"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+              "
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+          <div class="academy-info">
+            <h3>Continuous Learning Architecture</h3>
+            <ul class="check-list">
+              <li>
+                <strong>Structured Video Modules:</strong> Directly synchronized
+                with the Roboworld textbook series.
+              </li>
+              <li>
+                <strong>Downloadable Project Specs:</strong> Circuit schematics,
+                code libraries, and hardware blueprints.
+              </li>
+              <li>
+                <strong>Competition Prep:</strong> Exclusive training modules
+                for regional robotics league participants.
+              </li>
+            </ul>
+            <a
+              href="https://youtube.com/@enochjacob.mentor"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-gold"
+            >
+              Subscribe on YouTube
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+      STEP 12: INSTITUTIONAL TESTIMONIAL
+      Endorsement quote from school leadership.
+    ========================================================= -->
+    <!-- =========================================================
+      STEP 12: INSTITUTIONAL & ALUMNI ENDORSEMENTS
+    ========================================================= -->
+    <section class="section-container container">
+      <div class="section-header">
+        <h2>
+          INSTITUTIONAL & ALUMNI <span class="gold-text">ENDORSEMENTS</span>
+        </h2>
+        <p class="section-desc">
+          Real feedback from partner school administrators and transformed
+          students.
+        </p>
+        <div class="gold-divider"></div>
+      </div>
+
+      <div class="testimonials-grid">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <p class="quote-text">
+            "It has been a pleasure working with BLOSH TECH EDUCATIONAL HUB LTD.
+            I can only rave over the high standards that they maintain relative
+            to our pupils learning coding and robotics."
+          </p>
+          <div class="quote-author">
+            <h4>LEO ACHIEVER OLAWALE</h4>
+            <span class="gold-text">Head Teacher, A.I.S.S. Abuja</span>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+          <p class="quote-text">
+            "Blosh Tech Educational Hub is the perfect mix of learning and
+            technology. Students are immersed in 21st-century skills in a fun,
+            exciting, and highly practical way."
+          </p>
+          <div class="quote-author">
+            <h4>MR. GIWA</h4>
+            <span class="gold-text"
+              >Principal, Crescent Pearl Leadership Academy – Abuja</span
+            >
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+          <p class="quote-text">
+            "I would never have discovered robotics if it weren't for Mr. Enoch,
+            the CEO of BLOSH TECH EDUCATIONAL HUB LTD who led me in the right
+            direction. I am currently studying robotics at Brookstone
+            International Foundation School and building real projects thanks to
+            the foundation he gave me."
+          </p>
+          <div class="quote-author">
+            <h4>TOFUNMI ADEBINPE</h4>
+            <span class="gold-text"
+              >Robotics Student, Brookstone International</span
+            >
+          </div>
+        </div>
+
+        <!-- Testimonial 4 -->
+        <div class="testimonial-card">
+          <p class="quote-text">
+            "Mr. Enoch the CEO of BLOSH TECH EDUCATIONAL HUB LIMITED stopped me
+            on my way to the basketball court one day. He spoke so passionately
+            to me about robotics. I didn't believe it at first, but joining the
+            program changed my mindset and ignited my passion for technology."
+          </p>
+          <div class="quote-author">
+            <h4>FEJIRO ISIORO</h4>
+            <span class="gold-text">STEM & Robotics Student</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+      STEP 13: ENTERPRISE CONTACT & INQUIRY FORM
+      Dual pipeline: Sends data to bloshtechhub@gmail.com and opens WhatsApp.
+    ========================================================= -->
+    <section id="contact" class="section-container bg-dark-card">
+      <div class="container">
+        <div class="grid-2-equal">
+          <div>
+            <span class="card-tag gold-tag">ENGAGE OUR TEAM</span>
+            <h2 class="section-title-large">
+              PARTNER WITH <span class="gold-text">BLOSHTECH</span>
+            </h2>
+            <p class="text-body" style="margin-bottom: 30px">
+              Discuss curriculum adoption for your school, corporate sponsorship
+              for our STEM championships, or enterprise software solutions.
+            </p>
+
+            <div class="contact-info-block">
+              <p>
+                <strong>Corporate Head Office:</strong> No. 9, Agulu Street,
+                Dawaki, Abuja, FCT
+              </p>
+              <p><strong>Direct Line / WhatsApp:</strong> +234 701 151 1439</p>
+              <p><strong>Official Email:</strong> bloshtechhub@gmail.com</p>
+            </div>
+          </div>
+
+          <!-- Form inputs mapped to JavaScript submission -->
+          <form id="inquiryForm" class="contact-form">
+            <div class="form-group">
+              <label>Full Name / Title</label>
+              <input
+                type="text"
+                id="clientName"
+                name="name"
+                placeholder="e.g., Dr. John Doe (School Director)"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>Official Email Address</label>
+              <input
+                type="email"
+                id="clientEmail"
+                name="email"
+                placeholder="name@organization.com"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>Interest Area</label>
+              <select
+                id="clientInterest"
+                name="interest"
+                style="
+                  width: 100%;
+                  padding: 12px;
+                  background: #000;
+                  border: 1px solid var(--border-color);
+                  color: #fff;
+                  border-radius: 4px;
+                  margin-top: 5px;
+                "
+              >
+                <option>School Curriculum Adoption (Roboworld)</option>
+                <option>Interschool Championship Registration</option>
+                <option>CutMaster Pro Enterprise License</option>
+                <option>Corporate Partnership / CSR Support</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Message / Project Scope</label>
+              <textarea
+                id="clientMessage"
+                name="message"
+                rows="4"
+                placeholder="Detail your requirements..."
+                required
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              id="submitBtn"
+              class="btn btn-gold"
+              style="width: 100%"
+            >
+              Submit Partnership Inquiry
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+      STEP 14: FOOTER
+    ========================================================= -->
+    <footer class="footer">
+      <div class="container footer-content">
+        <p>&copy; 2026 BloshTech Educational Hub Ltd. All rights reserved.</p>
+        <p class="footer-tagline">SYSTEMIC LOGIC • ROBOTICS • SOFTWARE SAAS</p>
+      </div>
+    </footer>
+
+    <!-- =========================================================
+      STEP 15: JAVASCRIPT LOGIC
+      Handles mobile hamburger menu, form submission, and Paystack trigger.
+    ========================================================= -->
+    <script>
+      /* --- Part A: Mobile Drawer Toggle --- */
+      const menuToggle = document.getElementById("menuToggle");
+      const navLinks = document.getElementById("navLinks");
+
+      // Toggles the mobile navigation on hamburger click
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Automatically closes the menu when a section link is selected
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
+      });
+
+      /* --- Part B: Web3Forms Email & WhatsApp Dispatch --- */
+      const form = document.getElementById("inquiryForm");
+      const submitBtn = document.getElementById("submitBtn");
+
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault(); // Prevents default page refresh
+        submitBtn.innerText = "Transmitting Inquiry...";
+        submitBtn.disabled = true;
+
+        // Read user form inputs
+        const name = document.getElementById("clientName").value;
+        const email = document.getElementById("clientEmail").value;
+        const interest = document.getElementById("clientInterest").value;
+        const message = document.getElementById("clientMessage").value;
+
+        // 1. Silent Background Form Submission to bloshtechhub@gmail.com
+        try {
+          await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify({
+              // Your generated Web3Forms Access Key
+              access_key: "3a031636-1ab9-4318-98cb-86e5b8c030a2",
+              subject: `New Enterprise Inquiry from ${name} - ${interest}`,
+              from_name: "BloshTech Website Portal",
+              name: name,
+              email: email,
+              interest: interest,
+              message: message,
+            }),
+          });
+        } catch (err) {
+          console.warn(
+            "Email backup failed to dispatch, continuing to WhatsApp.",
+          );
+        }
+
+        // 2. Format and open WhatsApp pre-filled chat with your official line (+2347011511439)
+        const whatsappPhone = "2347011511439";
+        const waText = encodeURIComponent(
+          `Hello BloshTech,\n\nI just submitted an inquiry via bloshtech.com.\n\n*Name:* ${name}\n*Email:* ${email}\n*Interest:* ${interest}\n*Project Scope:* ${message}`,
+        );
+
+        window.open(`https://wa.me/${whatsappPhone}?text=${waText}`, "_blank");
+
+        // 3. Reset form state after 4 seconds
+        submitBtn.innerText = "Inquiry Sent Successfully!";
+        setTimeout(() => {
+          submitBtn.innerText = "Submit Partnership Inquiry";
+          submitBtn.disabled = false;
+          form.reset();
+        }, 4000);
+      });
+
+      /* --- Part C: Paystack Payment Trigger Handler --- */
+      // Replace with your live public key (pk_live_...) once Paystack activation completes
+      const PAYSTACK_PUBLIC_KEY = "pk_test_xxxxxxxxxxxxxxxxxxxxxxxx";
+
+      function triggerPaystackUpgrade(planCode, amountInKobo, userEmail) {
+        if (typeof PaystackPop === "undefined") {
+          alert(
+            "Payment engine is loading. Please check your internet connection.",
+          );
+          return;
+        }
+
+        const handler = PaystackPop.setup({
+          key: PAYSTACK_PUBLIC_KEY,
+          email: userEmail,
+          amount: amountInKobo, // e.g., 500000 = ₦5,000.00
+          plan: planCode || "",
+          ref: "BT-" + Math.floor(Math.random() * 1000000000 + 1),
+          callback: function (response) {
+            alert("Payment successful! Reference: " + response.reference);
+          },
+          onClose: function () {
+            console.log("Transaction window closed.");
+          },
+        });
+        handler.openIframe();
+      }
+    </script>
+  </body>
+</html>

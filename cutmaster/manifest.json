@@ -1,0 +1,18 @@
+{
+  "name": "CutMaster: Tailor CRM & Measure",
+  "short_name": "CutMaster",
+  "description": "Offline tailor CRM: client measurements, fabric estimator & printable job cards.",
+  "start_url": "/cutmaster/",
+  "scope": "/cutmaster/",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#121212",
+  "icons": [
+    {
+      "src": "/cutmaster/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

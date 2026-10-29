@@ -4,7 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CutMaster: Tailor CRM & Measure | BloshTech</title>
-
+<link rel="manifest" href="/cutmaster/manifest.json" />
+    <meta name="theme-color" content="#121212" />
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/cutmaster/sw.js');
+        });
+      }
+    </script>
     <style>
       :root {
         --primary: #121212;

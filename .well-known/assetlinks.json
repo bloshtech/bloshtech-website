@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.bloshtech.cutmaster",
+        "sha256_cert_fingerprints": ["15:06:CD:37:26:D0:63:35:82:5B:B5:87:6E:7B:68:2B:6E:06:D2:85:B8:02:EC:28:8D:C8:EC:0A:C4:EB:24:7D"]
+      }
+    }]

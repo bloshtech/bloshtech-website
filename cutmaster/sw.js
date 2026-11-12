@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cutmaster-cache-v1';
+const CACHE_NAME = 'cutmaster-cache-v2';
 const urlsToCache = [
   '/cutmaster/',
   '/cutmaster/index.html',

@@ -4,15 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CutMaster: Tailor CRM & Measure | BloshTech</title>
-<link rel="manifest" href="/cutmaster/manifest.json" />
-    <meta name="theme-color" content="#121212" />
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/cutmaster/sw.js');
-        });
-      }
-    </script>
+
     <style>
       :root {
         --primary: #121212;
@@ -322,7 +314,7 @@
           <input
             type="text"
             id="licenseInput"
-            placeholder="e.g. CMP-1YEAR-2026"
+            placeholder="e.g. CMP-W7K9-261212-8F3Z"
             style="
               text-transform: uppercase;
               font-weight: bold;
@@ -364,7 +356,9 @@
             Need workshop licensing or renewal assistance?
           </p>
           <a
-            href="https://wa.me/2347036552667?text=Hello%20BloshTech,%20I%20need%20a%20CutMaster%20Pro%20Workshop%20License."
+            id="licenseWaLink"
+            href="https://wa.me/2347064715985?text=Hello%20BloshTech,%20I%20need%20a%20CutMaster%20Pro%20Workshop%20License."
+            onclick="prepareLicenseWhatsApp()"
             target="_blank"
             style="
               display: inline-block;
@@ -520,7 +514,7 @@
           "
         >
           <span style="color: #bbb">Pending Balances:</span>
-          <strong id="pUnpaid" style="color: #27ae60">₦0</strong>
+          <strong id="pUnpaid" style="color: #27ae60">0</strong>
         </div>
       </div>
 
@@ -633,9 +627,21 @@
           <div class="field-group">
             <label>Currency</label>
             <select id="curr" onchange="calc()">
-              <option>₦</option>
-              <option>£</option>
-              <option>$</option>
+              <option value="₦">₦ (NGN - Nigeria)</option>
+              <option value="GH₵">GH₵ (GHS - Ghana)</option>
+              <option value="CFA">CFA (Franc - West/Central Africa)</option>
+              <option value="KSh">KSh (KES - Kenya)</option>
+              <option value="USh">USh (UGX - Uganda)</option>
+              <option value="TSh">TSh (TZS - Tanzania)</option>
+              <option value="R">R (ZAR - South Africa)</option>
+              <option value="$">$ (USD - Dollar)</option>
+              <option value="£">£ (GBP - British Pound)</option>
+              <option value="€">€ (EUR - Euro)</option>
+              <option value="CA$">CA$ (CAD - Canada)</option>
+              <option value="AU$">AU$ (AUD - Australia)</option>
+              <option value="AED">AED (UAE Dirham)</option>
+              <option value="SAR">SAR (Saudi Riyal)</option>
+              <option value="₹">₹ (INR - Indian Rupee)</option>
             </select>
           </div>
           <div class="full">
@@ -667,12 +673,11 @@
             <img id="fabricPreview" class="img-preview" alt="Fabric Preview" />
           </div>
           <div class="field-group">
-            <label>Style / Design Sketch Photo</label>
+            <label>Selected Style (Upload)</label>
             <input
               type="file"
               id="stylePhoto"
               accept="image/*"
-              capture="environment"
               onchange="handleImageCompress(event, 'stylePreview')"
             />
             <img id="stylePreview" class="img-preview" alt="Style Preview" />
@@ -2456,6 +2461,30 @@
         return payloadStr + "::" + computeDeviceHash(payloadStr);
       }
 
+      function getShopDeviceId() {
+        let id = localStorage.getItem("CMP_SHOP_ID");
+        if (!id) {
+          const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+          id = "";
+          for (let i = 0; i < 4; i++) {
+            id += chars.charAt(Math.floor(Math.random() * chars.length));
+          }
+          localStorage.setItem("CMP_SHOP_ID", id);
+        }
+        return id;
+      }
+
+      function prepareLicenseWhatsApp() {
+        const shopId = getShopDeviceId();
+        const msg = encodeURIComponent(
+          `Hello BloshTech, I want to activate/renew CutMaster Pro.\nMy Workshop ID is: ${shopId}`,
+        );
+        const link = document.getElementById("licenseWaLink");
+        if (link) {
+          link.href = `https://wa.me/2347064715985?text=${msg}`;
+        }
+      }
+
       function handleKeyActivation() {
         const inputKey = document
           .getElementById("licenseInput")
@@ -2463,28 +2492,79 @@
           .toUpperCase();
         if (!inputKey) return alert("Please enter an activation key.");
 
-        if (inputKey === "CMP-1MONTH-2026") {
-          localStorage.setItem("CMP_LICENSE_KEY", createSignedLicense(30));
-          alert("🔒 License Activated! Full access granted for 30 Days.");
-          document.getElementById("licenseModal").style.display = "none";
-        } else if (inputKey === "CMP-3MONTHS-2026") {
-          localStorage.setItem("CMP_LICENSE_KEY", createSignedLicense(90));
-          alert("🔒 License Activated! Full access granted for 90 Days.");
-          document.getElementById("licenseModal").style.display = "none";
-        } else if (inputKey === "CMP-6MONTHS-2026") {
-          localStorage.setItem("CMP_LICENSE_KEY", createSignedLicense(180));
-          alert("🔒 License Activated! Full access granted for 180 Days.");
-          document.getElementById("licenseModal").style.display = "none";
-        } else if (inputKey === "CMP-1YEAR-2026") {
-          localStorage.setItem("CMP_LICENSE_KEY", createSignedLicense(365));
-          alert("🔒 License Activated! Full access granted for 1 Year.");
-          document.getElementById("licenseModal").style.display = "none";
-        } else {
-          alert("❌ Invalid License Key. Contact BloshTech Support.");
+        // 1. Block reusing an old key on renewals
+        const usedKeys = JSON.parse(
+          localStorage.getItem("CMP_USED_KEYS") || "[]",
+        );
+        if (usedKeys.includes(inputKey)) {
+          return alert(
+            "❌ This license key has already been used. Request a renewal key.",
+          );
         }
+
+        // 2. Check format: CMP-XXXX-YYMMDD-XXXX
+        const parts = inputKey.split("-");
+        if (parts.length !== 4 || parts[0] !== "CMP") {
+          return alert(
+            "❌ Invalid License Key format. Contact BloshTech Support.",
+          );
+        }
+
+        const keyShopId = parts[1];
+        const expCode = parts[2];
+        const signature = parts[3];
+
+        // 3. Verify key matches THIS specific tailor's phone
+        const myShopId = getShopDeviceId();
+        if (keyShopId !== myShopId) {
+          return alert("❌ This key belongs to a different device/workshop.");
+        }
+
+        // 4. Verify mathematical signature
+        const SECRET_SALT = 7919;
+        const payload = keyShopId + expCode;
+        let hash = 0;
+        for (let i = 0; i < payload.length; i++) {
+          hash = (hash * 31 + payload.charCodeAt(i) * SECRET_SALT) % 1679616;
+        }
+        const expectedSig = Math.abs(hash)
+          .toString(36)
+          .toUpperCase()
+          .padStart(4, "0")
+          .slice(-4);
+
+        if (signature !== expectedSig) {
+          return alert("❌ Invalid License Key. Contact BloshTech Support.");
+        }
+
+        // 5. Decode expiry date (YYMMDD) and compute remaining days
+        const year = 2000 + parseInt(expCode.substring(0, 2), 10);
+        const month = parseInt(expCode.substring(2, 4), 10) - 1;
+        const day = parseInt(expCode.substring(4, 6), 10);
+        const expiryDate = new Date(year, month, day, 23, 59, 59);
+        const diffTime = expiryDate - new Date();
+        const daysValid = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+        if (daysValid <= 0) {
+          return alert("❌ This license key has already expired.");
+        }
+
+        // 6. Save key as used and unlock app
+        usedKeys.push(inputKey);
+        localStorage.setItem("CMP_USED_KEYS", JSON.stringify(usedKeys));
+        localStorage.setItem("CMP_LICENSE_KEY", createSignedLicense(daysValid));
+
+        alert(
+          `🔓 License Activated! Full access granted for ${daysValid} Days.`,
+        );
+        document.getElementById("licenseModal").style.display = "none";
       }
 
       window.addEventListener("DOMContentLoaded", () => {
+        const savedCurrency = localStorage.getItem("cutmaster_currency") || "";
+        if (savedCurrency && document.getElementById("curr")) {
+          document.getElementById("curr").value = savedCurrency;
+        }
         showSection("male");
         checkDeadlinesAndPulse();
         const savedShopName = localStorage.getItem("cutmaster_shop_name") || "";
@@ -2525,9 +2605,14 @@
         document.getElementById("pTotal").innerText = db.length;
         document.getElementById("pDueToday").innerText = dueToday;
         document.getElementById("pOverdue").innerText = overdue;
-        document.getElementById("pUnpaid").innerText =
-          "₦" + totalUnpaid.toLocaleString();
+        const activeCurr =
+          localStorage.getItem("cutmaster_currency") ||
+          (document.getElementById("curr")
+            ? document.getElementById("curr").value
+            : "₦");
 
+        document.getElementById("pUnpaid").innerText =
+          activeCurr + " " + totalUnpaid.toLocaleString();
         const banner = document.getElementById("deadlineBanner");
         if (dueToday > 0 || overdue > 0) {
           banner.style.display = "block";
@@ -2788,11 +2873,13 @@
       }
 
       function calc() {
-        const curr = document.getElementById("curr").value.split(" ")[0];
+        const curr = document.getElementById("curr").value;
+        localStorage.setItem("cutmaster_currency", curr);
         const t = parseFloat(document.getElementById("tp").value) || 0;
         const p = parseFloat(document.getElementById("pd").value) || 0;
         document.getElementById("bl").value =
           curr + " " + (t - p).toLocaleString();
+        checkDeadlinesAndPulse();
       }
 
       function saveData() {
@@ -2810,10 +2897,10 @@
             "⚠️ You have saved " +
             db.length +
             " customer records on the free version. Enter your workshop license key to unlock unlimited customers, cutting tickets, and backups.";
+          prepareLicenseWhatsApp();
           document.getElementById("licenseModal").style.display = "flex";
           return;
         }
-
         let measurements = {};
         if (currentGenderMode === "female") {
           measurements = {

@@ -1,8 +1,17 @@
-[{
-      "relation": ["delegate_permission/common.handle_all_urls"],
-      "target": {
-        "namespace": "android_app",
-        "package_name": "com.bloshtech.cutmaster",
-        "sha256_cert_fingerprints": ["15:06:CD:37:26:D0:63:35:82:5B:B5:87:6E:7B:68:2B:6E:06:D2:85:B8:02:EC:28:8D:C8:EC:0A:C4:EB:24:7D"]
-      }
-    }]
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.bloshtech.cutmaster",
+      "sha256_cert_fingerprints": [
+        "15:06:CD:37:26:D0:63:35:82:5B:B5:87:6E:7B:68:2B:6E:06:D2:85:B8:02:EC:28:8D:C8:EC:0A:C4:EB:24:7D",
+        "94:BD:AE:2B:C3:FA:0D:5C:D3:11:D4:2F:E5:C2:A1:7F:CB:66:78:A7:98:A1:B5:F5:C3:9E:CD:99:6C:3C:CC:DD",
+        "83:1A:A8:58:A8:3E:FD:89:1A:55:41:19:50:82:10:79:A5:76:9C:15:5B:DE:15:61:98:DB:EA:D1:60:AD:12:69",
+        "2A:C9:1F:28:1B:6B:85:9D:48:CA:1C:91:56:B1:EB:39:27:54:A6:C6:FF:FE:6F:68:26:5C:B5:1B:10:23:13:D4"
+      ]
+    }
+  }
+]
